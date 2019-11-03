@@ -8,10 +8,11 @@ class Solution2 {
         for (int i = 0; i < n; ++i) {
             int fact = factorial[n - i - 1];
             int index = k / fact + (k % fact != 0 ? 1 : 0);
-            k %= fact;
-            if (k == 0) {
-                k = fact;
-            }
+            // k %= fact;
+            // if (k == 0) {
+            //     k = fact;
+            // }
+            k = (k - 1 + fact) % fact + 1;
             for (int j = 1; j <= n; ++j) {
                 if (!used[j]) {
                     index--;
